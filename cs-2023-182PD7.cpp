@@ -239,4 +239,47 @@ cout<<endl<<untreated;
 }
 //task8
 
+#include <iostream>
+#include <iomanip>
+using namespace std;
+main()
+{
+	float count, tonnage = 0, tonnagesum = 0, microbus = 0, train = 0, truck = 0, average, perBus, perTrain, perTruck;
+	cout << "Enter the count of cargo for transportation: ";
+	cin >> count;
+	for (int x = 1; x <= count; x++)
+	{
 
+		cout << "Enter the tonnage of cargo" << x << " :";
+		cin >> tonnage;
+
+		tonnagesum += tonnage;
+
+		if (tonnage <= 3)
+		{
+			microbus += tonnage;
+			
+		}
+		if (tonnage > 3 && tonnage <= 11)
+		{
+			truck += tonnage;
+			
+		}
+		if (tonnage > 11)
+		{
+			train += tonnage;
+			
+		}
+		cout << tonnagesum << endl;
+	}
+	perBus = (microbus / tonnagesum) * 100;
+	perTruck = (truck / tonnagesum) * 100;
+	perTrain = (train / tonnagesum) * 100;
+	average = (microbus * 200 + truck * 175 + train * 120) / tonnagesum;
+	cout << fixed;
+	cout << setprecision(2);
+	cout << average << endl;
+	cout << perBus << endl;
+	cout << perTruck << endl;
+	cout << perTrain << endl;
+}
